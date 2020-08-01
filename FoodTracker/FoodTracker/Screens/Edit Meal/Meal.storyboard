@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UYq-iQ-vUb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Meal View Controller-->
+        <scene sceneID="C7D-VN-NMe">
+            <objects>
+                <viewController storyboardIdentifier="MealViewController" id="KZI-Og-Ahh" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yKK-kR-jHJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Q0X-9w-Q1w">
+                                <rect key="frame" x="0.0" y="108" width="414" height="350"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new meal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GDv-8H-zBk">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G3g-1r-Lw4">
+                                        <rect key="frame" x="82" y="42" width="250" height="250"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Cub-kf-2KA">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Cub-kf-2KA" secondAttribute="height" multiplier="1:1" id="KTK-ZG-Ove"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="PPd-gU-RfX" appends="YES" id="FaN-qO-Dc2"/>
+                                                </connections>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zMJ-Fd-3z2" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="81" y="300" width="252" height="50"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GDv-8H-zBk" secondAttribute="trailing" id="uAc-xy-X8L"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Q0X-9w-Q1w" firstAttribute="top" secondItem="Tmf-XE-dy7" secondAttribute="top" constant="20" id="2NH-1n-Zya"/>
+                            <constraint firstItem="Q0X-9w-Q1w" firstAttribute="leading" secondItem="Tmf-XE-dy7" secondAttribute="leading" id="B2f-Mn-mSU"/>
+                            <constraint firstItem="Tmf-XE-dy7" firstAttribute="trailing" secondItem="Q0X-9w-Q1w" secondAttribute="trailing" id="qCb-AB-RC7"/>
+                            <constraint firstItem="Tmf-XE-dy7" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Q0X-9w-Q1w" secondAttribute="bottom" id="xPW-Iy-z5v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tmf-XE-dy7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bNN-Mg-fpj"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="GDv-8H-zBk" id="OWB-Hu-vKB"/>
+                        <outlet property="photoImageView" destination="Cub-kf-2KA" id="m8d-JI-pKl"/>
+                        <outlet property="ratingControl" destination="zMJ-Fd-3z2" id="p9K-yZ-bUi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ee3-vz-Id1" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="PPd-gU-RfX">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="KZI-Og-Ahh" id="l8O-VD-d4N"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="552" y="252"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r3Y-Yw-2Fn">
+            <objects>
+                <navigationController storyboardIdentifier="MealNavVC" automaticallyAdjustsScrollViewInsets="NO" id="UYq-iQ-vUb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="byZ-j3-lK5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KZI-Og-Ahh" kind="relationship" relationship="rootViewController" id="6tN-Ed-0iZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rq1-nA-zd5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-107.24637681159422" y="98.4375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="defaultPhoto" width="540" height="540"/>
+    </resources>
+</document>
